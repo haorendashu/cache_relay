@@ -30,6 +30,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  nostr_sdk:
+    path: packages/nostr_sdk
+  relay_sdk:
+    path: packages/relay_sdk
 
 
   # The following adds the Cupertino Icons font to your application.

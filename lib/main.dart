@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   RelayManager relayManager = RelayManager();
 
   void _incrementCounter() {
+    relayManager.openFilterCheck = false;
     relayManager.start();
   }
 

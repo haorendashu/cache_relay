@@ -7,6 +7,7 @@ import 'package:cache_relay/provider/traffic_counter_provider.dart';
 import 'package:cache_relay/util/router_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 import 'package:provider/provider.dart';
 
 import '../../generated/l10n.dart';
@@ -39,7 +40,7 @@ class _IndexRouter extends State<IndexRouter> {
     list.add(
       Positioned(
         left: Base.BASE_PADDING + Base.BASE_PADDING_HALF,
-        top: Base.BASE_PADDING + padding.top,
+        top: 20 + padding.top,
         child: GestureDetector(
           onTap: () {},
           child: Icon(Icons.menu),
@@ -135,6 +136,37 @@ class _IndexRouter extends State<IndexRouter> {
         ),
       ));
     } else {
+      String des =
+          "There should be some description here, but I haven't prepared it yet.\n";
+
+      list.add(
+        Positioned(
+          left: 0,
+          right: 0,
+          child: Container(
+            height: 300,
+            margin: EdgeInsets.only(bottom: 100),
+            child: Swiper.children(
+              pagination: SwiperPagination(),
+              children: [
+                buildDesCard(
+                  "$des 1",
+                  themeData.cardColor,
+                ),
+                buildDesCard(
+                  "$des 2",
+                  themeData.cardColor,
+                ),
+                buildDesCard(
+                  "$des 3",
+                  themeData.cardColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+
       button = getStartWidget();
     }
 
@@ -213,6 +245,28 @@ class _IndexRouter extends State<IndexRouter> {
       selector: (context, provider) {
         return provider.totalTraffic.toTrafficString();
       },
+    );
+  }
+
+  Widget buildDesCard(String s, Color color) {
+    return Container(
+      alignment: Alignment.center,
+      child: Container(
+        height: 300,
+        width: 300,
+        padding: const EdgeInsets.all(Base.BASE_PADDING_HALF),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(Base.BASE_PADDING),
+          ),
+        ),
+        child: Text(
+          s,
+          textAlign: TextAlign.center,
+        ),
+      ),
     );
   }
 }

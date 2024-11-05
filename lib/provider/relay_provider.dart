@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:cache_relay/main.dart';
 import 'package:flutter/material.dart';
 import 'package:network_info_plus/network_info_plus.dart';
@@ -36,8 +37,19 @@ class RelayProvider extends ChangeNotifier {
       ip = localIp;
     }
 
-    var rm = _getRelayManager();
-    rm.start(relayInfo, port);
+    try {
+      var rm = _getRelayManager();
+      await rm.start(relayInfo, port);
+    } catch (e) {
+      print(e);
+      BotToast.showText(text: "Start server fail.");
+      if (_relayManager != null) {
+        try {
+          _relayManager!.stop();
+        } catch (e) {}
+      }
+      _relayManager = null;
+    }
 
     notifyListeners();
   }

@@ -2,6 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:cache_relay/provider/network_log_provider.dart';
 import 'package:cache_relay/provider/relay_provider.dart';
 import 'package:cache_relay/provider/traffic_counter_provider.dart';
+import 'package:cache_relay/router/connections/connections_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -19,7 +20,7 @@ import 'consts/theme_style.dart';
 import 'generated/l10n.dart';
 import 'provider/data_util.dart';
 import 'provider/setting_provider.dart';
-import 'router/index_router.dart';
+import 'router/index/index_router.dart';
 import 'util/colors_util.dart';
 
 late SettingProvider settingProvider;
@@ -117,6 +118,7 @@ class _MyApp extends State<MyApp> {
 
     routes = {
       RouterPath.INDEX: (context) => IndexRouter(),
+      RouterPath.CONNECTIONS: (context) => ConnectionsRouter(),
     };
 
     return MultiProvider(

@@ -1,13 +1,15 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cache_relay/consts/base.dart';
+import 'package:cache_relay/consts/router_path.dart';
 import 'package:cache_relay/main.dart';
 import 'package:cache_relay/provider/relay_provider.dart';
 import 'package:cache_relay/provider/traffic_counter_provider.dart';
+import 'package:cache_relay/util/router_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import '../generated/l10n.dart';
+import '../../generated/l10n.dart';
 
 class IndexRouter extends StatefulWidget {
   @override
@@ -147,20 +149,26 @@ class _IndexRouter extends State<IndexRouter> {
   }
 
   Widget buildCounterWidget(String title, Widget widget) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: Base.BASE_PADDING_HALF,
-        bottom: Base.BASE_PADDING_HALF,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: Base.BASE_PADDING_HALF),
-            child: Text(title),
-          ),
-          widget,
-        ],
+    return GestureDetector(
+      onTap: () {
+        RouterUtil.router(context, RouterPath.CONNECTIONS);
+      },
+      behavior: HitTestBehavior.translucent,
+      child: Container(
+        margin: const EdgeInsets.only(
+          top: Base.BASE_PADDING_HALF,
+          bottom: Base.BASE_PADDING_HALF,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: Base.BASE_PADDING_HALF),
+              child: Text(title),
+            ),
+            widget,
+          ],
+        ),
       ),
     );
   }

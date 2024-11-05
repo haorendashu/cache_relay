@@ -2,6 +2,7 @@ import 'package:cache_relay/main.dart';
 import 'package:flutter/material.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:nostr_sdk/relay/relay_info.dart';
+import 'package:relay_sdk/network/connection.dart';
 import 'package:relay_sdk/relay_manager.dart';
 
 class RelayProvider extends ChangeNotifier {
@@ -70,6 +71,14 @@ class RelayProvider extends ChangeNotifier {
     }
 
     return 0;
+  }
+
+  List<Connection> getConnections() {
+    if (_relayManager != null) {
+      return _relayManager!.getConnections();
+    }
+
+    return [];
   }
 
   void connectionListener() {

@@ -19,6 +19,14 @@ class IndexRouter extends StatefulWidget {
 }
 
 class _IndexRouter extends State<IndexRouter> {
+  int addressType = 0;
+
+  void changeAddressType() {
+    addressType++;
+    addressType %= 3;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     var themeData = Theme.of(context);
@@ -53,25 +61,49 @@ class _IndexRouter extends State<IndexRouter> {
       ));
 
       var relayAddress = "ws://${relayProvider.ip}:${relayProvider.port}";
+      if (addressType == 1) {
+        relayAddress = "ws://127.0.0.1:${relayProvider.port}";
+      } else {
+        if (addressType == 2) {
+          relayAddress = "ws://localhost:${relayProvider.port}";
+        }
+      }
+
       subList.add(Container(
         margin: EdgeInsets.only(top: Base.BASE_PADDING, bottom: 40),
-        child: GestureDetector(
-          onTap: () {
-            Clipboard.setData(ClipboardData(text: relayAddress)).then((_) {
-              BotToast.showText(text: "Copy Success");
-            });
-          },
-          child: Card(
-            child: Container(
-              padding: EdgeInsets.only(
-                left: Base.BASE_PADDING * 2,
-                right: Base.BASE_PADDING * 2,
-                top: Base.BASE_PADDING_HALF,
-                bottom: Base.BASE_PADDING_HALF,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(right: Base.BASE_PADDING_HALF),
+              child: GestureDetector(
+                onTap: changeAddressType,
+                child: Icon(Icons.autorenew),
               ),
-              child: Text(relayAddress),
             ),
-          ),
+            GestureDetector(
+              onTap: () {
+                Clipboard.setData(ClipboardData(text: relayAddress)).then((_) {
+                  BotToast.showText(text: "Copy Success");
+                });
+              },
+              child: Card(
+                child: Container(
+                  padding: EdgeInsets.only(
+                    left: Base.BASE_PADDING * 2,
+                    right: Base.BASE_PADDING * 2,
+                    top: Base.BASE_PADDING_HALF,
+                    bottom: Base.BASE_PADDING_HALF,
+                  ),
+                  child: Text(relayAddress),
+                ),
+              ),
+            ),
+            Container(
+              width: 20,
+            )
+          ],
         ),
       ));
 

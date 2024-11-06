@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:cache_relay/main.dart';
+import 'package:cache_relay/util/ip_util.dart';
 import 'package:flutter/material.dart';
 import 'package:network_info_plus/network_info_plus.dart';
 import 'package:nostr_sdk/relay/relay_info.dart';
@@ -31,11 +32,13 @@ class RelayProvider extends ChangeNotifier {
   }
 
   Future<void> start() async {
-    final info = NetworkInfo();
-    String? localIp = await info.getWifiIP();
+    // final info = NetworkInfo();
+    // String? localIp = await info.getWifiIP();
+    String? localIp = await IpUtil.getIp();
     if (localIp != null) {
       ip = localIp;
     }
+    IpUtil.getIp();
 
     try {
       var rm = _getRelayManager();

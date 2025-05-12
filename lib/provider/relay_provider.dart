@@ -1,4 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
+import 'package:cache_relay/consts/base.dart';
 import 'package:cache_relay/main.dart';
 import 'package:cache_relay/util/ip_util.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class RelayProvider extends ChangeNotifier {
 
   RelayManager _getRelayManager() {
     if (_relayManager == null) {
-      _relayManager = RelayManager(rootIsolateToken);
+      _relayManager = RelayManager(rootIsolateToken, Base.APP_NAME);
       _relayManager!.openFilterCheck = false;
       _relayManager!.trafficCounter = trafficCounterProvider;
       _relayManager!.networkLogsManager = networkLogProvider;

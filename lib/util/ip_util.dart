@@ -14,6 +14,8 @@ class IpUtil {
       }
     }
 
-    return ips.first.addresses.first.address;
+    if (ips.isNotEmpty) {
+      return ips.first.addresses.first.address;
+    }
   }
 }

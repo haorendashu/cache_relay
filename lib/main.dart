@@ -2,7 +2,9 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:cache_relay/provider/network_log_provider.dart';
 import 'package:cache_relay/provider/relay_provider.dart';
 import 'package:cache_relay/provider/traffic_counter_provider.dart';
+import 'package:cache_relay/router/about_me/about_me_router.dart';
 import 'package:cache_relay/router/connections/connections_router.dart';
+import 'package:cache_relay/router/setting/setting_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -119,6 +121,8 @@ class _MyApp extends State<MyApp> {
     routes = {
       RouterPath.INDEX: (context) => IndexRouter(),
       RouterPath.CONNECTIONS: (context) => ConnectionsRouter(),
+      RouterPath.SETTING: (context) => SettingRouter(),
+      RouterPath.ABOUT_ME: (context) => AboutMeRouter(),
     };
 
     return MultiProvider(

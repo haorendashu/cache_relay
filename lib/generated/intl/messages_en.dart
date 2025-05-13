@@ -21,5 +21,56 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "About": MessageLookupByLibrary.simpleMessage("About"),
+    "About_me": MessageLookupByLibrary.simpleMessage("About me"),
+    "App_des_info_1": MessageLookupByLibrary.simpleMessage(
+      "Locally cache high-frequency data, millisecond response, say goodbye to the loading wait of public relays, and make real-time social interaction as smooth as flowing water.",
+    ),
+    "App_des_info_2": MessageLookupByLibrary.simpleMessage(
+      "Critical information is stored locally and persistently. Even if the global relay is down, your content is still safe and can be retrieved at any time.",
+    ),
+    "App_des_info_3": MessageLookupByLibrary.simpleMessage(
+      "You can browse cached content even without network, and check historical messages and personal dynamics at any time. After the network is restored, it will automatically update online.",
+    ),
+    "App_des_info_4": MessageLookupByLibrary.simpleMessage(
+      "Locally handle a large number of repeated requests, greatly reduce the pressure of public relay traffic, and speed up and reduce the burden on Nostr network.",
+    ),
+    "App_des_title_1": MessageLookupByLibrary.simpleMessage(
+      "Improve data access speed",
+    ),
+    "App_des_title_2": MessageLookupByLibrary.simpleMessage(
+      "Ensure data reliability",
+    ),
+    "App_des_title_3": MessageLookupByLibrary.simpleMessage(
+      "Support offline access",
+    ),
+    "App_des_title_4": MessageLookupByLibrary.simpleMessage(
+      "Optimize network load",
+    ),
+    "Auto": MessageLookupByLibrary.simpleMessage("Auto"),
+    "Broadcase_user_s_events": MessageLookupByLibrary.simpleMessage(
+      "Broadcase user\'s events",
+    ),
+    "Cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "Confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+    "Connections": MessageLookupByLibrary.simpleMessage("Connections"),
+    "Copy_Success": MessageLookupByLibrary.simpleMessage("Copy Success"),
+    "Custom": MessageLookupByLibrary.simpleMessage("Custom"),
+    "Default": MessageLookupByLibrary.simpleMessage("Default"),
+    "General": MessageLookupByLibrary.simpleMessage("General"),
+    "Hide": MessageLookupByLibrary.simpleMessage("Hide"),
+    "Language": MessageLookupByLibrary.simpleMessage("Language"),
+    "Relay_Address": MessageLookupByLibrary.simpleMessage("Relay Address"),
+    "Relay_Config": MessageLookupByLibrary.simpleMessage("Relay Config"),
+    "Relay_Host": MessageLookupByLibrary.simpleMessage("Relay Host"),
+    "Relay_Port": MessageLookupByLibrary.simpleMessage("Relay Port"),
+    "Setting": MessageLookupByLibrary.simpleMessage("Setting"),
+    "Show": MessageLookupByLibrary.simpleMessage("Show"),
+    "Start": MessageLookupByLibrary.simpleMessage("Start"),
+    "Stop": MessageLookupByLibrary.simpleMessage("Stop"),
+    "Traffic": MessageLookupByLibrary.simpleMessage("Traffic"),
+    "close": MessageLookupByLibrary.simpleMessage("Close"),
+    "open": MessageLookupByLibrary.simpleMessage("Open"),
+  };
 }

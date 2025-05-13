@@ -1,4 +1,4 @@
-import 'package:cache_relay/consts/base.dart';
+import 'package:cache_relay/const/base.dart';
 import 'package:cache_relay/provider/traffic_counter_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:nostr_sdk/nip19/nip19.dart';

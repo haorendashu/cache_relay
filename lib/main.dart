@@ -15,10 +15,10 @@ import 'package:nostr_sdk/utils/string_util.dart';
 import 'package:provider/provider.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'consts/base.dart';
-import 'consts/colors.dart';
-import 'consts/router_path.dart';
-import 'consts/theme_style.dart';
+import 'const/base.dart';
+import 'const/colors.dart';
+import 'const/router_path.dart';
+import 'const/theme_style.dart';
 import 'generated/l10n.dart';
 import 'provider/data_util.dart';
 import 'provider/setting_provider.dart';
@@ -121,7 +121,7 @@ class _MyApp extends State<MyApp> {
     routes = {
       RouterPath.INDEX: (context) => IndexRouter(),
       RouterPath.CONNECTIONS: (context) => ConnectionsRouter(),
-      RouterPath.SETTING: (context) => SettingRouter(),
+      RouterPath.SETTING: (context) => SettingRouter(indexReload: reload),
       RouterPath.ABOUT_ME: (context) => AboutMeRouter(),
     };
 

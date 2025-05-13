@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:nostr_sdk/utils/string_util.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../consts/base.dart';
-import '../consts/base_consts.dart';
-import '../consts/theme_style.dart';
+import '../const/base.dart';
+import '../const/base_consts.dart';
+import '../const/theme_style.dart';
 import 'data_util.dart';
 
 class SettingProvider extends ChangeNotifier {

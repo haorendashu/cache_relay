@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../consts/base.dart';
+import '../../const/base.dart';
 import '../../util/router_util.dart';
 
 class AboutMeRouter extends StatefulWidget {

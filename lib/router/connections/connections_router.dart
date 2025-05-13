@@ -1,9 +1,12 @@
-import 'package:cache_relay/consts/base.dart';
-import 'package:cache_relay/provider/relay_provider.dart';
-import 'package:cache_relay/router/connections/connection_item_component.dart';
-import 'package:cache_relay/util/router_util.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../const/base.dart';
+import '../../const/base_consts.dart';
+import '../../generated/l10n.dart';
+import '../../provider/relay_provider.dart';
+import '../../util/router_util.dart';
+import 'connection_item_component.dart';
 
 class ConnectionsRouter extends StatefulWidget {
   @override
@@ -15,6 +18,7 @@ class ConnectionsRouter extends StatefulWidget {
 class _ConnectionsRouter extends State<ConnectionsRouter> {
   @override
   Widget build(BuildContext context) {
+    var s = S.of(context);
     var themeData = Theme.of(context);
     var relayProvider = Provider.of<RelayProvider>(context);
     var connections = relayProvider.getConnections();
@@ -34,7 +38,7 @@ class _ConnectionsRouter extends State<ConnectionsRouter> {
           child: const Icon(Icons.chevron_left),
         ),
         title: Text(
-          "Connections",
+          s.Connections,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: themeData.textTheme.bodyLarge!.fontSize,

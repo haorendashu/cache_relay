@@ -1,6 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:cache_relay/consts/base.dart';
-import 'package:cache_relay/consts/router_path.dart';
+import 'package:cache_relay/const/base.dart';
+import 'package:cache_relay/const/router_path.dart';
 import 'package:cache_relay/main.dart';
 import 'package:cache_relay/provider/relay_provider.dart';
 import 'package:cache_relay/provider/traffic_counter_provider.dart';
@@ -28,8 +28,11 @@ class _IndexRouter extends State<IndexRouter> {
     setState(() {});
   }
 
+  late S s;
+
   @override
   Widget build(BuildContext context) {
+    s = S.of(context);
     var themeData = Theme.of(context);
     var relayProvider = Provider.of<RelayProvider>(context);
     var padding = MediaQuery.of(context).padding;
@@ -42,7 +45,9 @@ class _IndexRouter extends State<IndexRouter> {
         left: Base.BASE_PADDING + Base.BASE_PADDING_HALF,
         top: 20 + padding.top,
         child: GestureDetector(
-          onTap: () {},
+          onTap: () {
+            RouterUtil.router(context, RouterPath.SETTING);
+          },
           child: Icon(Icons.menu),
         ),
       ),
@@ -54,7 +59,7 @@ class _IndexRouter extends State<IndexRouter> {
 
       List<Widget> subList = [];
       subList.add(Text(
-        "Relay Address",
+        s.Relay_Address,
         style: TextStyle(
           fontSize: largeFontSize,
           fontWeight: FontWeight.bold,
@@ -86,7 +91,7 @@ class _IndexRouter extends State<IndexRouter> {
             GestureDetector(
               onTap: () {
                 Clipboard.setData(ClipboardData(text: relayAddress)).then((_) {
-                  BotToast.showText(text: "Copy Success");
+                  BotToast.showText(text: s.Copy_Success);
                 });
               },
               child: Card(
@@ -110,12 +115,12 @@ class _IndexRouter extends State<IndexRouter> {
 
       List<Widget> counterList = [];
       counterList.add(Expanded(
-        child: buildCounterWidget("Traffic", buildTrafficWidget()),
+        child: buildCounterWidget(s.Traffic, buildTrafficWidget()),
       ));
       counterList.add(VerticalDivider());
       counterList.add(Expanded(
         child: buildCounterWidget(
-          "Connections",
+          s.Connections,
           Text(
             relayProvider.connectionNum().toString(),
           ),
@@ -136,9 +141,6 @@ class _IndexRouter extends State<IndexRouter> {
         ),
       ));
     } else {
-      String des =
-          "There should be some description here, but I haven't prepared it yet.\n";
-
       list.add(
         Positioned(
           left: 0,
@@ -150,15 +152,23 @@ class _IndexRouter extends State<IndexRouter> {
               pagination: SwiperPagination(),
               children: [
                 buildDesCard(
-                  "$des 1",
+                  s.App_des_title_1,
+                  s.App_des_info_1,
                   themeData.cardColor,
                 ),
                 buildDesCard(
-                  "$des 2",
+                  s.App_des_title_2,
+                  s.App_des_info_2,
                   themeData.cardColor,
                 ),
                 buildDesCard(
-                  "$des 3",
+                  s.App_des_title_3,
+                  s.App_des_info_3,
+                  themeData.cardColor,
+                ),
+                buildDesCard(
+                  s.App_des_title_4,
+                  s.App_des_info_4,
                   themeData.cardColor,
                 ),
               ],
@@ -196,7 +206,7 @@ class _IndexRouter extends State<IndexRouter> {
       onPressed: () {
         relayProvider.start();
       },
-      child: Text("Start"),
+      child: Text(s.Start),
     );
   }
 
@@ -208,7 +218,7 @@ class _IndexRouter extends State<IndexRouter> {
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all(Colors.red),
       ),
-      child: Text("Stop"),
+      child: Text(s.Stop),
     );
   }
 
@@ -248,7 +258,7 @@ class _IndexRouter extends State<IndexRouter> {
     );
   }
 
-  Widget buildDesCard(String s, Color color) {
+  Widget buildDesCard(String title, String s, Color color) {
     return Container(
       alignment: Alignment.center,
       child: Container(
@@ -262,9 +272,25 @@ class _IndexRouter extends State<IndexRouter> {
             Radius.circular(Base.BASE_PADDING),
           ),
         ),
-        child: Text(
-          s,
-          textAlign: TextAlign.center,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              title,
+              // textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  top: Base.BASE_PADDING, bottom: Base.BASE_PADDING),
+              child: Text(
+                s,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
         ),
       ),
     );

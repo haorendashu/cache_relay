@@ -1,5 +1,5 @@
 import 'package:bot_toast/bot_toast.dart';
-import 'package:cache_relay/consts/base.dart';
+import 'package:cache_relay/const/base.dart';
 import 'package:cache_relay/main.dart';
 import 'package:cache_relay/util/ip_util.dart';
 import 'package:flutter/material.dart';

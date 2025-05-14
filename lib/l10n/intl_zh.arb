@@ -8,6 +8,10 @@
     "Auto": "自动",
     "Custom": "自定义",
     "Default": "默认",
+    "Follow_System": "跟随系统",
+    "Light": "浅色",
+    "Dark": "深色",
+    "Theme_Style": "主题类型",
     "Relay_Address": "中继地址",
     "Copy_Success": "复制成功",
     "Traffic": "流量",
@@ -30,5 +34,9 @@
     "Relay_Config": "中继配置",
     "About_me": "关于我",
     "About": "关于",
-    "Setting": "设置"
+    "Setting": "设置",
+    "Event_Sign_Check": "Event签名校验",
+    "Value_will_work_after_restar_relay": "重启中继后值才会生效",
+    "Input_relay_host_title": "请输入中继域名。",
+    "Input_relay_port_title": "请输入中继端口。"
 }

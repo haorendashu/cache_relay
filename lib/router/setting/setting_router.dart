@@ -1,11 +1,16 @@
+import 'package:bot_toast/bot_toast.dart';
+import 'package:cache_relay/component/text_input/text_input_dialog.dart';
 import 'package:cache_relay/const/base.dart';
 import 'package:cache_relay/const/router_path.dart';
+import 'package:cache_relay/provider/setting_provider.dart';
 import 'package:cache_relay/util/router_util.dart';
 import 'package:flutter/material.dart';
 import 'package:nostr_sdk/utils/string_util.dart';
+import 'package:provider/provider.dart';
 
 import '../../component/enum_selector_component.dart';
 import '../../const/base_consts.dart';
+import '../../const/theme_style.dart';
 import '../../generated/l10n.dart';
 import '../../main.dart';
 import '../../util/locale_util.dart';
@@ -37,10 +42,12 @@ class _SettingRouter extends State<SettingRouter> {
     s = S.of(context);
     List<Widget> mainList = [];
     themeData = Theme.of(context);
+    var _settingProvider = Provider.of<SettingProvider>(context);
 
     initOpenList(s);
     initI18nList(s);
     initCustomList(s);
+    initThemeStyleList(s);
 
     {
       List<Widget> list = [];
@@ -52,15 +59,34 @@ class _SettingRouter extends State<SettingRouter> {
         value: getI18nList(settingProvider.i18n, settingProvider.i18nCC).name,
       );
 
+      addItem(
+        list,
+        s.Theme_Style,
+        onTap: pickThemeStyle,
+        value: getThemeStyle(settingProvider.themeStyle).name,
+      );
+
       wrapList(mainList, s.General, list);
     }
 
     {
       List<Widget> list = [];
 
-      addItem(list, s.Relay_Host, showBorderBottom: true);
-      addItem(list, s.Relay_Port, showBorderBottom: true);
-      addItem(list, s.Broadcase_user_s_events);
+      addItem(
+        list,
+        s.Relay_Host,
+        showBorderBottom: true,
+        onTap: inputRelayHost,
+        value: settingProvider.relayHost,
+      );
+      addItem(
+        list,
+        s.Relay_Port,
+        showBorderBottom: true,
+        onTap: inputRelayPort,
+        value: _settingProvider.relayPort?.toString(),
+      );
+      // addItem(list, s.Broadcase_user_s_events);
 
       wrapList(mainList, s.Relay_Config, list);
     }
@@ -293,5 +319,56 @@ class _SettingRouter extends State<SettingRouter> {
         });
       });
     }
+  }
+
+  List<EnumObj>? themeStyleList;
+
+  void initThemeStyleList(S s) {
+    if (themeStyleList == null) {
+      themeStyleList = [];
+      themeStyleList?.add(EnumObj(ThemeStyle.AUTO, s.Follow_System));
+      themeStyleList?.add(EnumObj(ThemeStyle.LIGHT, s.Light));
+      themeStyleList?.add(EnumObj(ThemeStyle.DARK, s.Dark));
+    }
+  }
+
+  Future<void> pickThemeStyle() async {
+    EnumObj? resultEnumObj =
+        await EnumSelectorComponent.show(context, themeStyleList!);
+    if (resultEnumObj != null) {
+      settingProvider.themeStyle = resultEnumObj.value;
+      resetTheme();
+    }
+  }
+
+  EnumObj getThemeStyle(int themeStyle) {
+    for (var eo in themeStyleList!) {
+      if (eo.value == themeStyle) {
+        return eo;
+      }
+    }
+    return themeStyleList![0];
+  }
+
+  inputRelayHost() async {
+    var text = await TextInputDialog.show(
+        context, "${s.Input_relay_host_title} (eg: localhost, 192.168.31.24)",
+        value: settingProvider.relayHost);
+    settingProvider.relayHost = text;
+    BotToast.showText(text: s.Value_will_work_after_restar_relay);
+  }
+
+  inputRelayPort() async {
+    var text = await TextInputDialog.show(
+        context, "${s.Input_relay_port_title} (eg: 4869)",
+        value: settingProvider.relayHost);
+    if (StringUtil.isBlank(text)) {
+      settingProvider.relayPort = null;
+    } else {
+      var port = int.tryParse(text!);
+      settingProvider.relayPort = port;
+    }
+
+    BotToast.showText(text: s.Value_will_work_after_restar_relay);
   }
 }

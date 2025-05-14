@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -52,10 +51,6 @@ class SettingProvider extends ChangeNotifier {
   /// open lock
   int get lockOpen => _settingData!.lockOpen;
 
-  String? get imageService => _settingData!.imageService;
-
-  String? get imageServiceAddr => _settingData!.imageServiceAddr;
-
   /// i18n
   String? get i18n => _settingData!.i18n;
 
@@ -63,20 +58,6 @@ class SettingProvider extends ChangeNotifier {
 
   /// theme style
   int get themeStyle => _settingData!.themeStyle;
-
-  /// theme color
-  int? get themeColor => _settingData!.themeColor;
-
-  int? get mainFontColor => _settingData!.mainFontColor;
-
-  int? get hintFontColor => _settingData!.hintFontColor;
-
-  int? get cardColor => _settingData!.cardColor;
-
-  String? get backgroundImage => _settingData!.backgroundImage;
-
-  /// fontFamily
-  String? get fontFamily => _settingData!.fontFamily;
 
   Map<String, int> _translateSourceArgsMap = {};
 
@@ -86,11 +67,13 @@ class SettingProvider extends ChangeNotifier {
 
   double get fontSize => _settingData!.fontSize ?? Base.BASE_FONT_SIZE;
 
-  int? get tableMode => _settingData!.tableMode;
-
   int? get relayMode => _settingData!.relayMode;
 
   int? get eventSignCheck => _settingData!.eventSignCheck;
+
+  String? get relayHost => _settingData!.relayHost;
+
+  int? get relayPort => _settingData!.relayPort;
 
   set settingData(SettingData o) {
     _settingData = o;
@@ -100,16 +83,6 @@ class SettingProvider extends ChangeNotifier {
   /// open lock
   set lockOpen(int o) {
     _settingData!.lockOpen = o;
-    saveAndNotifyListeners();
-  }
-
-  set imageService(String? o) {
-    _settingData!.imageService = o;
-    saveAndNotifyListeners();
-  }
-
-  set imageServiceAddr(String? o) {
-    _settingData!.imageServiceAddr = o;
     saveAndNotifyListeners();
   }
 
@@ -131,45 +104,8 @@ class SettingProvider extends ChangeNotifier {
     saveAndNotifyListeners();
   }
 
-  /// theme color
-  set themeColor(int? o) {
-    _settingData!.themeColor = o;
-    saveAndNotifyListeners();
-  }
-
-  set mainFontColor(int? o) {
-    _settingData!.mainFontColor = o;
-    saveAndNotifyListeners();
-  }
-
-  set hintFontColor(int? o) {
-    _settingData!.hintFontColor = o;
-    saveAndNotifyListeners();
-  }
-
-  set cardColor(int? o) {
-    _settingData!.cardColor = o;
-    saveAndNotifyListeners();
-  }
-
-  set backgroundImage(String? o) {
-    _settingData!.backgroundImage = o;
-    saveAndNotifyListeners();
-  }
-
-  /// fontFamily
-  set fontFamily(String? _fontFamily) {
-    _settingData!.fontFamily = _fontFamily;
-    saveAndNotifyListeners();
-  }
-
   set fontSize(double o) {
     _settingData!.fontSize = o;
-    saveAndNotifyListeners();
-  }
-
-  set tableMode(int? o) {
-    _settingData!.tableMode = o;
     saveAndNotifyListeners();
   }
 
@@ -180,6 +116,16 @@ class SettingProvider extends ChangeNotifier {
 
   set eventSignCheck(int? o) {
     _settingData!.eventSignCheck = o;
+    saveAndNotifyListeners();
+  }
+
+  set relayHost(String? o) {
+    _settingData!.relayHost = o;
+    saveAndNotifyListeners();
+  }
+
+  set relayPort(int? o) {
+    _settingData!.relayPort = o;
     saveAndNotifyListeners();
   }
 
@@ -200,10 +146,6 @@ class SettingData {
   /// open lock
   late int lockOpen;
 
-  String? imageService;
-
-  String? imageServiceAddr;
-
   /// i18n
   String? i18n;
 
@@ -212,51 +154,29 @@ class SettingData {
   /// theme style
   late int themeStyle;
 
-  /// theme color
-  int? themeColor;
-
-  /// main font color
-  int? mainFontColor;
-
-  /// hint font color
-  int? hintFontColor;
-
-  /// card color
-  int? cardColor;
-
-  String? backgroundImage;
-
-  /// fontFamily
-  String? fontFamily;
-
   double? fontSize;
-
-  int? tableMode;
 
   int? relayMode;
 
   int? eventSignCheck;
+
+  String? relayHost;
+
+  int? relayPort;
 
   /// updated time
   late int updatedTime;
 
   SettingData({
     this.lockOpen = OpenStatus.CLOSE,
-    this.imageService,
-    this.imageServiceAddr,
     this.i18n,
     this.i18nCC,
     this.themeStyle = ThemeStyle.AUTO,
-    this.themeColor,
-    this.mainFontColor,
-    this.hintFontColor,
-    this.cardColor,
-    this.backgroundImage,
-    this.fontFamily,
     this.fontSize,
-    this.tableMode,
     this.relayMode,
     this.eventSignCheck,
+    this.relayHost,
+    this.relayPort,
     this.updatedTime = 0,
   });
 
@@ -266,8 +186,6 @@ class SettingData {
     } else {
       lockOpen = OpenStatus.CLOSE;
     }
-    imageService = json['imageService'];
-    imageServiceAddr = json['imageServiceAddr'];
     i18n = json['i18n'];
     i18nCC = json['i18nCC'];
     if (json['themeStyle'] != null) {
@@ -275,15 +193,11 @@ class SettingData {
     } else {
       themeStyle = ThemeStyle.AUTO;
     }
-    themeColor = json['themeColor'];
-    mainFontColor = json['mainFontColor'];
-    hintFontColor = json['hintFontColor'];
-    cardColor = json['cardColor'];
-    backgroundImage = json['backgroundImage'];
     fontSize = json['fontSize'];
-    tableMode = json['tableMode'];
     relayMode = json['relayMode'];
     eventSignCheck = json['eventSignCheck'];
+    relayHost = json['relayHost'];
+    relayPort = json['relayPort'];
     if (json['updatedTime'] != null) {
       updatedTime = json['updatedTime'];
     } else {
@@ -294,21 +208,14 @@ class SettingData {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['lockOpen'] = this.lockOpen;
-    data['imageService'] = this.imageService;
-    data['imageServiceAddr'] = this.imageServiceAddr;
     data['i18n'] = this.i18n;
     data['i18nCC'] = this.i18nCC;
     data['themeStyle'] = this.themeStyle;
-    data['themeColor'] = this.themeColor;
-    data['mainFontColor'] = this.mainFontColor;
-    data['hintFontColor'] = this.hintFontColor;
-    data['cardColor'] = this.cardColor;
-    data['backgroundImage'] = this.backgroundImage;
-    data['fontFamily'] = this.fontFamily;
     data['fontSize'] = this.fontSize;
-    data['tableMode'] = this.tableMode;
     data['relayMode'] = this.relayMode;
     data['eventSignCheck'] = this.eventSignCheck;
+    data['relayHost'] = this.relayHost;
+    data['relayPort'] = this.relayPort;
     data['updatedTime'] = this.updatedTime;
     return data;
   }

@@ -14,6 +14,8 @@ class Base {
 
   static double BASE_FONT_SIZE = 15;
 
+  static const int DEFAULT_PORT = 4869;
+
   // static double BASE_FONT_SIZE_PC = 15;
 
   // static double TABBAR_HEIGHT = 46;

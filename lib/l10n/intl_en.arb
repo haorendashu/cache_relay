@@ -8,6 +8,10 @@
     "Auto": "Auto",
     "Custom": "Custom",
     "Default": "Default",
+    "Follow_System": "Follow System",
+    "Light": "Light",
+    "Dark": "Dark",
+    "Theme_Style": "Theme Style",
     "Relay_Address": "Relay Address",
     "Copy_Success": "Copy Success",
     "Traffic": "Traffic",
@@ -30,5 +34,9 @@
     "Relay_Config": "Relay Config",
     "About_me": "About me",
     "About": "About",
-    "Setting": "Setting"
+    "Setting": "Setting",
+    "Event_Sign_Check": "Event Sign Check",
+    "Value_will_work_after_restar_relay": "Value will work after restart relay.",
+    "Input_relay_host_title": "Please input relay host.",
+    "Input_relay_port_title": "Please input relay port."
 }

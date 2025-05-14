@@ -100,6 +100,31 @@ class S {
     return Intl.message('Default', name: 'Default', desc: '', args: []);
   }
 
+  /// `Follow System`
+  String get Follow_System {
+    return Intl.message(
+      'Follow System',
+      name: 'Follow_System',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light`
+  String get Light {
+    return Intl.message('Light', name: 'Light', desc: '', args: []);
+  }
+
+  /// `Dark`
+  String get Dark {
+    return Intl.message('Dark', name: 'Dark', desc: '', args: []);
+  }
+
+  /// `Theme Style`
+  String get Theme_Style {
+    return Intl.message('Theme Style', name: 'Theme_Style', desc: '', args: []);
+  }
+
   /// `Relay Address`
   String get Relay_Address {
     return Intl.message(
@@ -273,6 +298,46 @@ class S {
   /// `Setting`
   String get Setting {
     return Intl.message('Setting', name: 'Setting', desc: '', args: []);
+  }
+
+  /// `Event Sign Check`
+  String get Event_Sign_Check {
+    return Intl.message(
+      'Event Sign Check',
+      name: 'Event_Sign_Check',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Value will work after restart relay.`
+  String get Value_will_work_after_restar_relay {
+    return Intl.message(
+      'Value will work after restart relay.',
+      name: 'Value_will_work_after_restar_relay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input relay host.`
+  String get Input_relay_host_title {
+    return Intl.message(
+      'Please input relay host.',
+      name: 'Input_relay_host_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input relay port.`
+  String get Input_relay_port_title {
+    return Intl.message(
+      'Please input relay port.',
+      name: 'Input_relay_port_title',
+      desc: '',
+      args: [],
+    );
   }
 }
 

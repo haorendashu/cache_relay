@@ -57,10 +57,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "Connections": MessageLookupByLibrary.simpleMessage("Connections"),
     "Copy_Success": MessageLookupByLibrary.simpleMessage("Copy Success"),
     "Custom": MessageLookupByLibrary.simpleMessage("Custom"),
+    "Dark": MessageLookupByLibrary.simpleMessage("Dark"),
     "Default": MessageLookupByLibrary.simpleMessage("Default"),
+    "Event_Sign_Check": MessageLookupByLibrary.simpleMessage(
+      "Event Sign Check",
+    ),
+    "Follow_System": MessageLookupByLibrary.simpleMessage("Follow System"),
     "General": MessageLookupByLibrary.simpleMessage("General"),
     "Hide": MessageLookupByLibrary.simpleMessage("Hide"),
+    "Input_relay_host_title": MessageLookupByLibrary.simpleMessage(
+      "Please input relay host.",
+    ),
+    "Input_relay_port_title": MessageLookupByLibrary.simpleMessage(
+      "Please input relay port.",
+    ),
     "Language": MessageLookupByLibrary.simpleMessage("Language"),
+    "Light": MessageLookupByLibrary.simpleMessage("Light"),
     "Relay_Address": MessageLookupByLibrary.simpleMessage("Relay Address"),
     "Relay_Config": MessageLookupByLibrary.simpleMessage("Relay Config"),
     "Relay_Host": MessageLookupByLibrary.simpleMessage("Relay Host"),
@@ -69,7 +81,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "Show": MessageLookupByLibrary.simpleMessage("Show"),
     "Start": MessageLookupByLibrary.simpleMessage("Start"),
     "Stop": MessageLookupByLibrary.simpleMessage("Stop"),
+    "Theme_Style": MessageLookupByLibrary.simpleMessage("Theme Style"),
     "Traffic": MessageLookupByLibrary.simpleMessage("Traffic"),
+    "Value_will_work_after_restar_relay": MessageLookupByLibrary.simpleMessage(
+      "Value will work after restart relay.",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Close"),
     "open": MessageLookupByLibrary.simpleMessage("Open"),
   };

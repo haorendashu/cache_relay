@@ -181,16 +181,6 @@ class _MyApp extends State<MyApp> {
     var scaffoldBackgroundColor = Colors.grey[100];
     Color cardColor = Colors.white;
 
-    if (settingProvider.mainFontColor != null) {
-      mainTextColor = Color(settingProvider.mainFontColor!);
-    }
-    if (settingProvider.hintFontColor != null) {
-      hintColor = Color(settingProvider.hintFontColor!);
-    }
-    if (settingProvider.cardColor != null) {
-      cardColor = Color(settingProvider.cardColor!);
-    }
-
     double baseFontSize = settingProvider.fontSize;
 
     var textTheme = TextTheme(
@@ -201,18 +191,6 @@ class _MyApp extends State<MyApp> {
     var titleTextStyle = TextStyle(
       color: mainTextColor,
     );
-
-    if (settingProvider.fontFamily != null) {
-      textTheme =
-          GoogleFonts.getTextTheme(settingProvider.fontFamily!, textTheme);
-      titleTextStyle = GoogleFonts.getFont(settingProvider.fontFamily!,
-          textStyle: titleTextStyle);
-    }
-
-    if (StringUtil.isNotBlank(settingProvider.backgroundImage)) {
-      scaffoldBackgroundColor = Colors.transparent;
-      cardColor = cardColor.withOpacity(0.6);
-    }
 
     return ThemeData(
       platform: TargetPlatform.iOS,
@@ -260,16 +238,6 @@ class _MyApp extends State<MyApp> {
     var scaffoldBackgroundColor = Color.fromARGB(255, 40, 40, 40);
     Color cardColor = Colors.black;
 
-    if (settingProvider.mainFontColor != null) {
-      mainTextColor = Color(settingProvider.mainFontColor!);
-    }
-    if (settingProvider.hintFontColor != null) {
-      hintColor = Color(settingProvider.hintFontColor!);
-    }
-    if (settingProvider.cardColor != null) {
-      cardColor = Color(settingProvider.cardColor!);
-    }
-
     double baseFontSize = settingProvider.fontSize;
 
     var textTheme = TextTheme(
@@ -281,18 +249,6 @@ class _MyApp extends State<MyApp> {
       color: topFontColor,
       // color: Colors.black,
     );
-
-    if (settingProvider.fontFamily != null) {
-      textTheme =
-          GoogleFonts.getTextTheme(settingProvider.fontFamily!, textTheme);
-      titleTextStyle = GoogleFonts.getFont(settingProvider.fontFamily!,
-          textStyle: titleTextStyle);
-    }
-
-    if (StringUtil.isNotBlank(settingProvider.backgroundImage)) {
-      scaffoldBackgroundColor = Colors.transparent;
-      cardColor = cardColor.withOpacity(0.6);
-    }
 
     return ThemeData(
       platform: TargetPlatform.iOS,
@@ -327,8 +283,5 @@ class _MyApp extends State<MyApp> {
 
 Color _getMainColor() {
   Color color500 = const Color(0xff519495);
-  if (settingProvider.themeColor != null) {
-    color500 = Color(settingProvider.themeColor!);
-  }
   return color500;
 }

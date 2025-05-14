@@ -9,6 +9,8 @@ import 'package:nostr_sdk/utils/string_util.dart';
 import 'package:relay_sdk/network/connection.dart';
 import 'package:relay_sdk/relay_manager.dart';
 
+import '../const/base_consts.dart';
+
 class RelayProvider extends ChangeNotifier {
   String ip = "127.0.0.1";
 
@@ -76,6 +78,9 @@ class RelayProvider extends ChangeNotifier {
   RelayManager _getRelayManager() {
     if (_relayManager == null) {
       _relayManager = RelayManager(rootIsolateToken, Base.APP_NAME);
+      _relayManager!.openSignCheck = (settingProvider.eventSignCheck == null
+          ? true
+          : settingProvider.eventSignCheck == OpenStatus.OPEN);
       _relayManager!.openFilterCheck = false;
       _relayManager!.trafficCounter = trafficCounterProvider;
       _relayManager!.networkLogsManager = networkLogProvider;

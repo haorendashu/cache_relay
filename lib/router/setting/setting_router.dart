@@ -86,6 +86,12 @@ class _SettingRouter extends State<SettingRouter> {
         onTap: inputRelayPort,
         value: _settingProvider.relayPort?.toString(),
       );
+      addItem(
+        list,
+        s.Event_Sign_Check,
+        onTap: pickEventSignCheck,
+        value: getOpenList(_settingProvider.eventSignCheck).name,
+      );
       // addItem(list, s.Broadcase_user_s_events);
 
       wrapList(mainList, s.Relay_Config, list);
@@ -370,5 +376,14 @@ class _SettingRouter extends State<SettingRouter> {
     }
 
     BotToast.showText(text: s.Value_will_work_after_restar_relay);
+  }
+
+  pickEventSignCheck() async {
+    EnumObj? resultEnumObj =
+        await EnumSelectorComponent.show(context, openList!);
+    if (resultEnumObj != null) {
+      settingProvider.eventSignCheck = resultEnumObj.value;
+      BotToast.showText(text: s.Value_will_work_after_restar_relay);
+    }
   }
 }

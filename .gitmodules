@@ -4,3 +4,6 @@
 [submodule "packages/relay_sdk"]
 	path = packages/relay_sdk
 	url = git@github.com:haorendashu/relay_sdk.git
+[submodule "packages/relay_isar_db"]
+	path = packages/relay_isar_db
+	url = git@github.com:haorendashu/relay_isar_db.git

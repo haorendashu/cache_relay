@@ -1,7 +1,7 @@
 class Base {
   static const APP_NAME = "CacheRelay";
 
-  static String VERSION_NAME = "0.0.1";
+  static String VERSION_NAME = "0.0.2";
 
   static int VERSION_NUM = 1;
 

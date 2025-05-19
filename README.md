@@ -8,6 +8,24 @@ A multi-platform cache relay
 
 </div>
 
+## Why use Cache Relay ?
+
+**Improve data access speed**
+
+Locally cache high-frequency data, millisecond response, say goodbye to the loading wait of public relays, and make real-time social interaction as smooth as flowing water.
+
+**Ensure data reliability**
+
+Critical information is stored locally and persistently. Even if the global relay is down, your content is still safe and can be retrieved at any time.
+
+**Support offline access**
+
+You can browse cached content even without network, and check historical messages and personal dynamics at any time. After the network is restored, it will automatically update online.
+
+**Optimize network load**
+
+Locally handle a large number of repeated requests, greatly reduce the pressure of public relay traffic, and speed up and reduce the burden on Nostr network.
+
 ## Downloads
 
 You can download From [Release](https://github.com/haorendashu/cache_relay/releases) https://github.com/haorendashu/cache_relay/releases

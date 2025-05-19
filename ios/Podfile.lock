@@ -4,6 +4,8 @@ PODS:
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - isar_flutter_libs (1.0.0):
+    - Flutter
   - network_info_plus (0.0.1):
     - Flutter
   - path_provider_foundation (0.0.1):
@@ -20,6 +22,7 @@ DEPENDENCIES:
   - cryptography_flutter (from `.symlinks/plugins/cryptography_flutter/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
+  - isar_flutter_libs (from `.symlinks/plugins/isar_flutter_libs/ios`)
   - network_info_plus (from `.symlinks/plugins/network_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -32,6 +35,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
     :path: Flutter
+  isar_flutter_libs:
+    :path: ".symlinks/plugins/isar_flutter_libs/ios"
   network_info_plus:
     :path: ".symlinks/plugins/network_info_plus/ios"
   path_provider_foundation:
@@ -42,14 +47,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite_darwin/darwin"
 
 SPEC CHECKSUMS:
-  cryptography_flutter: 381bdacc984abcfbe3ca45ef7c76566ff061614c
-  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  cryptography_flutter: 70166b3780db39960caf51fd90fe308bec22d3f1
+  device_info_plus: 71ffc6ab7634ade6267c7a93088ed7e4f74e5896
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  network_info_plus: 6613d9d7cdeb0e6f366ed4dbe4b3c51c52d567a9
-  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
-  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
-  sqflite_darwin: a553b1fd6fe66f53bbb0fe5b4f5bab93f08d7a13
+  isar_flutter_libs: bc909e72c3d756c2759f14c8776c13b5b0556e26
+  network_info_plus: cf61925ab5205dce05a4f0895989afdb6aade5fc
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

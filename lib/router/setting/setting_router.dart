@@ -55,6 +55,7 @@ class _SettingRouter extends State<SettingRouter> {
       addItem(
         list,
         s.Language,
+        showBorderBottom: true,
         onTap: pickI18N,
         value: getI18nList(settingProvider.i18n, settingProvider.i18nCC).name,
       );

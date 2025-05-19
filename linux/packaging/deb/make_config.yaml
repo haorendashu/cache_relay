@@ -1,0 +1,35 @@
+display_name: Cache Relay
+package_name: cacherelay
+
+maintainer:
+  name: DASHU
+  email: haorendashu@gmail.com
+
+priority: optional
+
+section: x11
+
+installed_size: 15700
+
+dependencies:
+  - libsqlite3-0
+  - libsqlite3-dev
+  - libsecret-1-dev
+
+essential: false
+
+icon: assets/imgs/logo/logo512.png
+
+postuninstall_scripts:
+  - echo "Sorry to see you go."
+
+keywords:
+  - Nostr
+  - Cache Relay
+
+generic_name: Cache Relay
+
+categories:
+  - Network
+
+startup_notify: true

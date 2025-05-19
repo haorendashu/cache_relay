@@ -368,7 +368,7 @@ class _SettingRouter extends State<SettingRouter> {
   inputRelayPort() async {
     var text = await TextInputDialog.show(
         context, "${s.Input_relay_port_title} (eg: 4869)",
-        value: settingProvider.relayHost);
+        value: settingProvider.relayPort != null ? settingProvider.relayPort.toString() : "");
     if (StringUtil.isBlank(text)) {
       settingProvider.relayPort = null;
     } else {
